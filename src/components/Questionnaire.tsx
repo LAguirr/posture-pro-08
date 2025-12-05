@@ -66,15 +66,15 @@ const Questionnaire = ({ onComplete, onBack }: QuestionnaireProps) => {
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="mb-8 slide-up">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               onClick={handlePrevious}
               className="mb-4"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Retour
             </Button>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-2">
               Questionnaire de <span className="gradient-text">Profilage</span>
             </h2>
             <p className="text-muted-foreground">
@@ -86,7 +86,7 @@ const Questionnaire = ({ onComplete, onBack }: QuestionnaireProps) => {
           {/* Step content */}
           <Card variant="gradient" className="p-8 scale-in">
             {steps[currentStep] === "level" && (
-              <LevelStep 
+              <LevelStep
                 selected={profile.level}
                 onSelect={(level) => setProfile({ ...profile, level })}
               />
@@ -128,8 +128,8 @@ const Questionnaire = ({ onComplete, onBack }: QuestionnaireProps) => {
 
           {/* Navigation */}
           <div className="flex justify-end mt-6">
-            <Button 
-              variant="hero" 
+            <Button
+              variant="hero"
               size="lg"
               onClick={handleNext}
               disabled={!canProceed()}
@@ -154,11 +154,11 @@ const Questionnaire = ({ onComplete, onBack }: QuestionnaireProps) => {
   );
 };
 
-const LevelStep = ({ 
-  selected, 
-  onSelect 
-}: { 
-  selected?: string; 
+const LevelStep = ({
+  selected,
+  onSelect
+}: {
+  selected?: string;
   onSelect: (level: "beginner" | "intermediate" | "advanced") => void;
 }) => {
   const levels = [
@@ -169,7 +169,7 @@ const LevelStep = ({
 
   return (
     <div>
-      <h3 className="text-2xl font-bold mb-2">Quel est votre niveau sportif ?</h3>
+      <h3 className="text-2xl font-extrabold mb-2">Quel est votre niveau sportif ?</h3>
       <p className="text-muted-foreground mb-6">
         Cela nous aidera à adapter les conseils à votre expérience
       </p>
@@ -187,7 +187,7 @@ const LevelStep = ({
           >
             <span className="text-3xl">{level.icon}</span>
             <div>
-              <h4 className="font-bold text-lg">{level.label}</h4>
+              <h4 className="font-extrabold text-lg">{level.label}</h4>
               <p className="text-muted-foreground text-sm">{level.description}</p>
             </div>
             {selected === level.id && (
@@ -228,7 +228,7 @@ const MultiSelectStep = ({
 
   return (
     <div>
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
+      <h3 className="text-2xl font-extrabold mb-2">{title}</h3>
       <p className="text-muted-foreground mb-6">{subtitle}</p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {options.map((option) => (
@@ -260,7 +260,7 @@ const MovementStep = ({
 }) => {
   return (
     <div>
-      <h3 className="text-2xl font-bold mb-2">Quel mouvement souhaitez-vous maîtriser ?</h3>
+      <h3 className="text-2xl font-extrabold mb-2">Quel mouvement souhaitez-vous maîtriser ?</h3>
       <p className="text-muted-foreground mb-6">
         Choisissez l'exercice pour lequel vous voulez des conseils
       </p>
@@ -276,11 +276,11 @@ const MovementStep = ({
                 : "border-border hover:border-primary/50 hover:bg-secondary/50"
             )}
           >
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-lg">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-extrabold text-lg">
               {movement.name.charAt(0)}
             </div>
             <div className="flex-1">
-              <h4 className="font-bold">{movement.name}</h4>
+              <h4 className="font-extrabold">{movement.name}</h4>
               <p className="text-muted-foreground text-sm">{movement.category} • {movement.difficulty === "beginner" ? "Débutant" : movement.difficulty === "intermediate" ? "Intermédiaire" : "Avancé"}</p>
             </div>
             {selected === movement.id && (

@@ -270,13 +270,11 @@ export const objectivesList = [
   { id: "force", label: "Gagner en Force", icon: "💪" },
   { id: "souplesse", label: "Améliorer la Souplesse", icon: "🤸" },
   { id: "endurance", label: "Développer l'Endurance", icon: "❤️" },
-  { id: "equilibre", label: "Améliorer l'Équilibre", icon: "⚖️" },
-  { id: "posture", label: "Corriger ma Posture", icon: "🧍" },
   { id: "prevention", label: "Prévenir les Blessures", icon: "🛡️" },
 ];
 
 export const injuryZonesList = [
-  { id: "dos", label: "Dos / Lombaires", icon: "🔙" },
+  { id: "dos", label: "Dos / Lombaires", icon: "🩻" },
   { id: "genoux", label: "Genoux", icon: "🦵" },
   { id: "épaules", label: "Épaules", icon: "💪" },
   { id: "hanches", label: "Hanches", icon: "🦴" },

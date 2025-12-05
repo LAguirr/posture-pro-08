@@ -22,26 +22,26 @@ const HeroSection = ({ onStartQuestionnaire }: HeroSectionProps) => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-8">
             <Activity className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-muted-foreground">
-              Coach Postural Intelligent
+              Vous êtes CTO de Votre Santé Posturale
             </span>
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
             Maîtrisez vos{" "}
             <span className="gradient-text">Mouvements</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Analyse personnalisée, conseils d'experts et prévention des blessures 
+            Analyse personnalisée, conseils d'experts et prévention des blessures
             pour optimiser votre performance sportive.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              variant="glow" 
-              size="xl" 
+            <Button
+              variant="hero"
+              size="xl"
               onClick={onStartQuestionnaire}
               className="group"
             >
@@ -55,17 +55,17 @@ const HeroSection = ({ onStartQuestionnaire }: HeroSectionProps) => {
 
           {/* Feature cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <FeatureCard 
+            <FeatureCard
               icon={<Target className="w-8 h-8" />}
               title="Analyse Personnalisée"
               description="Questionnaire intelligent adapté à votre profil sportif"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Activity className="w-8 h-8" />}
               title="Guides Détaillés"
               description="Instructions pas à pas pour chaque mouvement"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Shield className="w-8 h-8" />}
               title="Prévention Active"
               description="Conseils ciblés pour éviter les blessures"
@@ -73,25 +73,17 @@ const HeroSection = ({ onStartQuestionnaire }: HeroSectionProps) => {
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-xs text-muted-foreground">Défiler</span>
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-        </div>
-      </div>
     </section>
   );
 };
 
-const FeatureCard = ({ 
-  icon, 
-  title, 
-  description 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
+const FeatureCard = ({
+  icon,
+  title,
+  description
+}: {
+  icon: React.ReactNode;
+  title: string;
   description: string;
 }) => (
   <div className="glass-effect rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group">

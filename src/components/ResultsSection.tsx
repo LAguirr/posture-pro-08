@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { UserProfile } from "@/types/questionnaire";
 import { movements, equipment } from "@/data/movements";
-import { 
-  ArrowLeft, 
-  CheckCircle2, 
-  AlertTriangle, 
-  Wind, 
-  Target, 
+import {
+  ArrowLeft,
+  CheckCircle2,
+  AlertTriangle,
+  Wind,
+  Target,
   ShieldAlert,
   ExternalLink,
   ChevronDown,
@@ -24,7 +24,7 @@ interface ResultsSectionProps {
 
 const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
   const movement = movements.find((m) => m.id === profile.selectedMovement);
-  const relevantEquipment = equipment.filter((e) => 
+  const relevantEquipment = equipment.filter((e) =>
     e.relevantFor.includes(profile.selectedMovement)
   );
 
@@ -50,10 +50,10 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
             </Button>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-2xl btn-gradient flex items-center justify-center">
-                <span className="text-3xl font-black">{movement.name.charAt(0)}</span>
+                <span className="text-3xl font-extrabold">{movement.name.charAt(0)}</span>
               </div>
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold">
+                <h1 className="text-3xl md:text-4xl font-extrabold">
                   Guide : <span className="gradient-text">{movement.name}</span>
                 </h1>
                 <p className="text-muted-foreground">
@@ -67,8 +67,8 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
           {movement.demoImage && (
             <Card variant="glow" className="mb-6 scale-in overflow-hidden">
               <div className="relative">
-                <img 
-                  src={movement.demoImage} 
+                <img
+                  src={movement.demoImage}
                   alt={`Démonstration du ${movement.name}`}
                   className="w-full h-64 md:h-96 object-cover"
                 />
@@ -100,7 +100,7 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
               <CardContent>
                 <div className="space-y-3">
                   {personalizedWarnings.map(({ zone, warning }) => (
-                    <div 
+                    <div
                       key={zone}
                       className="flex gap-3 p-3 rounded-lg bg-destructive/10 border border-destructive/20"
                     >
@@ -172,7 +172,7 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {movement.musclesTargeted.map((muscle) => (
-                  <span 
+                  <span
                     key={muscle}
                     className="px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-sm font-medium"
                   >
@@ -198,14 +198,14 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
                   {relevantEquipment.map((item) => (
-                    <div 
+                    <div
                       key={item.id}
                       className="group rounded-xl border border-border bg-secondary/30 hover:border-primary/50 transition-all overflow-hidden"
                     >
                       {/* Equipment Image */}
                       <div className="relative h-40 bg-background/50 overflow-hidden">
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={item.name}
                           className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                         />
@@ -214,7 +214,7 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
                           {item.price.toFixed(2)} €
                         </div>
                       </div>
-                      
+
                       {/* Equipment Info */}
                       <div className="p-4">
                         <h4 className="font-bold mb-1">{item.name}</h4>
@@ -261,7 +261,7 @@ const ErrorsVisualization = ({ errors }: { errors: string[] }) => {
       <CardContent>
         <div className="grid md:grid-cols-2 gap-3">
           {errors.slice(0, expanded ? errors.length : 4).map((error, index) => (
-            <div 
+            <div
               key={index}
               className="flex gap-3 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20"
             >
@@ -271,8 +271,8 @@ const ErrorsVisualization = ({ errors }: { errors: string[] }) => {
           ))}
         </div>
         {errors.length > 4 && (
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="mt-4 w-full"
             onClick={() => setExpanded(!expanded)}
           >
