@@ -1,13 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import Questionnaire from "@/components/Questionnaire";
+import ResultsSection from "@/components/ResultsSection";
+import { UserProfile } from "@/types/questionnaire";
+
+type AppState = "home" | "questionnaire" | "results";
 
 const Index = () => {
+  const [appState, setAppState] = useState<AppState>("home");
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+  const handleStartQuestionnaire = () => {
+    setAppState("questionnaire");
+  };
+
+  const handleQuestionnaireComplete = (profile: UserProfile) => {
+    setUserProfile(profile);
+    setAppState("results");
+  };
+
+  const handleRestart = () => {
+    setUserProfile(null);
+    setAppState("home");
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      
+      {appState === "home" && (
+        <HeroSection onStartQuestionnaire={handleStartQuestionnaire} />
+      )}
+      
+      {appState === "questionnaire" && (
+        <Questionnaire 
+          onComplete={handleQuestionnaireComplete}
+          onBack={handleRestart}
+        />
+      )}
+      
+      {appState === "results" && userProfile && (
+        <ResultsSection 
+          profile={userProfile}
+          onRestart={handleRestart}
+        />
+      )}
+    </main>
   );
 };
 
