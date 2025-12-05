@@ -12,6 +12,7 @@ export interface Movement {
   category: string;
   difficulty: "beginner" | "intermediate" | "advanced";
   description: string;
+  demoImage?: string;
   instructions: string[];
   breathingTips: string[];
   commonErrors: string[];
@@ -24,8 +25,9 @@ export interface Equipment {
   name: string;
   description: string;
   relevantFor: string[];
-  imageUrl: string;
+  image: string;
   link: string;
+  price: number;
   safetyBenefit: string;
 }
 

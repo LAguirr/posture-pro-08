@@ -12,9 +12,10 @@ import {
   ShieldAlert,
   ExternalLink,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Play,
+  ShoppingCart
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface ResultsSectionProps {
   profile: UserProfile;
@@ -61,6 +62,31 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
               </div>
             </div>
           </div>
+
+          {/* Exercise Demo Image */}
+          {movement.demoImage && (
+            <Card variant="glow" className="mb-6 scale-in overflow-hidden">
+              <div className="relative">
+                <img 
+                  src={movement.demoImage} 
+                  alt={`Démonstration du ${movement.name}`}
+                  className="w-full h-64 md:h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="flex items-center gap-2 text-foreground">
+                    <div className="w-10 h-10 rounded-full btn-gradient flex items-center justify-center">
+                      <Play className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-bold">Posture de référence</p>
+                      <p className="text-sm text-muted-foreground">Observez la forme correcte</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )}
 
           {/* Personalized Warnings */}
           {personalizedWarnings.length > 0 && (
@@ -162,7 +188,8 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
             <Card variant="glow" className="scale-in" style={{ animationDelay: "0.5s" }}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  🛡️ Équipement recommandé
+                  <ShoppingCart className="w-5 h-5 text-primary" />
+                  Équipement recommandé
                 </CardTitle>
                 <p className="text-muted-foreground text-sm">
                   Pour pratiquer en toute sécurité
@@ -173,18 +200,34 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
                   {relevantEquipment.map((item) => (
                     <div 
                       key={item.id}
-                      className="p-4 rounded-xl border border-border bg-secondary/30 hover:border-primary/50 transition-all"
+                      className="group rounded-xl border border-border bg-secondary/30 hover:border-primary/50 transition-all overflow-hidden"
                     >
-                      <h4 className="font-bold mb-1">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {item.safetyBenefit}
-                      </p>
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                          Voir sur Decathlon
-                          <ExternalLink className="w-4 h-4 ml-2" />
-                        </a>
-                      </Button>
+                      {/* Equipment Image */}
+                      <div className="relative h-40 bg-background/50 overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                        />
+                        {/* Price Badge */}
+                        <div className="absolute top-3 right-3 px-3 py-1 rounded-full btn-gradient text-sm font-bold">
+                          {item.price.toFixed(2)} €
+                        </div>
+                      </div>
+                      
+                      {/* Equipment Info */}
+                      <div className="p-4">
+                        <h4 className="font-bold mb-1">{item.name}</h4>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          {item.safetyBenefit}
+                        </p>
+                        <Button variant="sport" size="sm" className="w-full" asChild>
+                          <a href={item.link} target="_blank" rel="noopener noreferrer">
+                            Voir sur Decathlon
+                            <ExternalLink className="w-4 h-4 ml-2" />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   ))}
                 </div>

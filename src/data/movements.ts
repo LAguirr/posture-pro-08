@@ -1,5 +1,21 @@
 import { Movement, Equipment } from "@/types/questionnaire";
 
+// Exercise demonstration images
+import squatDemo from "@/assets/exercises/squat-demo.jpg";
+import plancheDemo from "@/assets/exercises/planche-demo.jpg";
+import salutationSoleilDemo from "@/assets/exercises/salutation-soleil-demo.jpg";
+import fentesDemo from "@/assets/exercises/fentes-demo.jpg";
+import pompesDemo from "@/assets/exercises/pompes-demo.jpg";
+
+// Equipment images
+import tapisYogaImg from "@/assets/equipment/tapis-yoga.jpg";
+import briqueYogaImg from "@/assets/equipment/brique-yoga.jpg";
+import genouilleresImg from "@/assets/equipment/genouilleres.jpg";
+import bandeResistanceImg from "@/assets/equipment/bande-resistance.jpg";
+import rouleauMassageImg from "@/assets/equipment/rouleau-massage.jpg";
+import ceintureMuscuImg from "@/assets/equipment/ceinture-musculation.jpg";
+import gantsMuscuImg from "@/assets/equipment/gants-musculation.jpg";
+
 export const movements: Movement[] = [
   {
     id: "squat",
@@ -7,6 +23,7 @@ export const movements: Movement[] = [
     category: "Musculation",
     difficulty: "beginner",
     description: "Le squat est un exercice fondamental qui cible les quadriceps, les fessiers et les ischio-jambiers.",
+    demoImage: squatDemo,
     instructions: [
       "Placez vos pieds à largeur d'épaules, orteils légèrement vers l'extérieur",
       "Gardez le dos droit et la poitrine ouverte",
@@ -39,6 +56,7 @@ export const movements: Movement[] = [
     category: "Core",
     difficulty: "beginner",
     description: "La planche est un exercice isométrique qui renforce toute la ceinture abdominale.",
+    demoImage: plancheDemo,
     instructions: [
       "Placez-vous en position de pompe, avant-bras au sol",
       "Alignez vos coudes sous vos épaules",
@@ -70,6 +88,7 @@ export const movements: Movement[] = [
     category: "Yoga",
     difficulty: "intermediate",
     description: "Séquence dynamique de yoga qui réchauffe le corps et améliore la souplesse.",
+    demoImage: salutationSoleilDemo,
     instructions: [
       "Debout, pieds joints, mains en prière devant le cœur (Tadasana)",
       "Inspirez, levez les bras au ciel, légère extension arrière",
@@ -103,6 +122,7 @@ export const movements: Movement[] = [
     category: "Musculation",
     difficulty: "beginner",
     description: "Exercice unilatéral excellent pour développer force et équilibre des jambes.",
+    demoImage: fentesDemo,
     instructions: [
       "Debout, pieds à largeur de hanches",
       "Faites un grand pas en avant avec une jambe",
@@ -134,6 +154,7 @@ export const movements: Movement[] = [
     category: "Musculation",
     difficulty: "intermediate",
     description: "Exercice polyarticulaire classique pour le haut du corps.",
+    demoImage: pompesDemo,
     instructions: [
       "Position de planche, mains légèrement plus larges que les épaules",
       "Corps aligné de la tête aux talons",
@@ -167,8 +188,9 @@ export const equipment: Equipment[] = [
     name: "Tapis de Yoga Antidérapant",
     description: "Surface stable et confortable pour tous vos exercices au sol.",
     relevantFor: ["planche", "salutation-soleil", "pompes"],
-    imageUrl: "https://contents.mediadecathlon.com/p2059547/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/tapis-yoga-doux-confort-8-mm-gris.jpg",
+    image: tapisYogaImg,
     link: "https://www.decathlon.fr/p/tapis-yoga-doux-confort-8-mm/_/R-p-305117",
+    price: 19.99,
     safetyBenefit: "Prévient les glissements et protège vos articulations pendant les exercices au sol."
   },
   {
@@ -176,8 +198,9 @@ export const equipment: Equipment[] = [
     name: "Brique de Yoga",
     description: "Aide à maintenir une posture correcte pour les débutants.",
     relevantFor: ["salutation-soleil", "fentes"],
-    imageUrl: "https://contents.mediadecathlon.com/p1694091/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/brique-yoga-mousse.jpg",
+    image: briqueYogaImg,
     link: "https://www.decathlon.fr/p/brique-yoga-mousse/_/R-p-14582",
+    price: 4.99,
     safetyBenefit: "Permet d'adapter les postures à votre niveau de souplesse sans forcer."
   },
   {
@@ -185,8 +208,9 @@ export const equipment: Equipment[] = [
     name: "Genouillères de Protection",
     description: "Protection et maintien pour les genoux sensibles.",
     relevantFor: ["squat", "fentes"],
-    imageUrl: "https://contents.mediadecathlon.com/p2026697/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/genouillere-maintien-gauche-droite.jpg",
+    image: genouilleresImg,
     link: "https://www.decathlon.fr/p/genouillere-maintien-gauche-droite/_/R-p-330736",
+    price: 14.99,
     safetyBenefit: "Soutient l'articulation du genou pendant les mouvements de flexion."
   },
   {
@@ -194,8 +218,9 @@ export const equipment: Equipment[] = [
     name: "Ceinture Lombaire de Musculation",
     description: "Soutien du bas du dos pendant les exercices de force.",
     relevantFor: ["squat", "fentes"],
-    imageUrl: "https://contents.mediadecathlon.com/p2095289/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/ceinture-musculation-cuir.jpg",
+    image: ceintureMuscuImg,
     link: "https://www.decathlon.fr/p/ceinture-musculation-cuir/_/R-p-305128",
+    price: 24.99,
     safetyBenefit: "Aide à maintenir la colonne vertébrale neutre pendant les charges lourdes."
   },
   {
@@ -203,8 +228,9 @@ export const equipment: Equipment[] = [
     name: "Poignées de Pompes",
     description: "Réduit la pression sur les poignets pendant les pompes.",
     relevantFor: ["pompes", "planche"],
-    imageUrl: "https://contents.mediadecathlon.com/p2059547/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/poignees-pompes.jpg",
+    image: gantsMuscuImg,
     link: "https://www.decathlon.fr/p/poignees-pompes/_/R-p-305125",
+    price: 9.99,
     safetyBenefit: "Position neutre du poignet pour éviter les douleurs et blessures."
   },
   {
@@ -212,9 +238,20 @@ export const equipment: Equipment[] = [
     name: "Bandes de Résistance",
     description: "Parfaites pour l'échauffement et l'activation musculaire.",
     relevantFor: ["squat", "fentes", "pompes"],
-    imageUrl: "https://contents.mediadecathlon.com/p1694091/k$8d1b8f4c7c8c5c5c5c5c5c5c5c5c5c5c/elastiband.jpg",
+    image: bandeResistanceImg,
     link: "https://www.decathlon.fr/p/elastiband/_/R-p-14583",
+    price: 7.99,
     safetyBenefit: "Excellent pour l'activation des muscles stabilisateurs avant l'entraînement."
+  },
+  {
+    id: "rouleau-massage",
+    name: "Rouleau de Massage",
+    description: "Idéal pour la récupération et l'auto-massage musculaire.",
+    relevantFor: ["squat", "fentes", "planche", "pompes"],
+    image: rouleauMassageImg,
+    link: "https://www.decathlon.fr/p/rouleau-massage/_/R-p-305130",
+    price: 12.99,
+    safetyBenefit: "Favorise la récupération et réduit les tensions musculaires post-entraînement."
   }
 ];
 
