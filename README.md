@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Posture Pro - Analyse et Correction Posturale
 
 Bienvenue sur le projet **Posture Pro**. Cette application web interactive aide les utilisateurs à analyser leur posture, identifier les zones à risque et obtenir des recommandations d'exercices personnalisées basées sur leur profil (niveau, sport, objectifs, blessures).
+=======
+# Décacoach - Analyse et Correction Posturale
+
+Bienvenue sur le projet **Décacoach**. Cette application web interactive aide les utilisateurs à analyser leur posture, identifier les zones à risque et obtenir des recommandations d'exercices personnalisées basées sur leur profil (niveau, sport, objectifs, blessures).
+>>>>>>> 5b6ebf9f489ae66e97d93a3656493519c5e2207b
 
 ## 🚀 Instructions pour lancer le projet
 
@@ -14,7 +20,11 @@ Assurez-vous d'avoir **Node.js** et **npm** installés sur votre machine.
 1.  **Cloner le dépôt** (si ce n'est pas déjà fait) :
     ```bash
     git clone <VOTRE_URL_GIT>
+<<<<<<< HEAD
     cd posture-pro-08
+=======
+    cd decacoach
+>>>>>>> 5b6ebf9f489ae66e97d93a3656493519c5e2207b
     ```
 
 2.  **Installer les dépendances** :
@@ -46,4 +56,8 @@ Les principaux défis lors du développement ont été :
 
 Vous pouvez accéder à la version déployée et fonctionnelle de l'application ici :
 
+<<<<<<< HEAD
 👉 **[https://posture-pro-08-two.vercel.app/](https://posture-pro-08-two.vercel.app/)**
+=======
+👉 **[https://decacoach.vercel.app/](https://decacoach.vercel.app/)**
+>>>>>>> 5b6ebf9f489ae66e97d93a3656493519c5e2207b
