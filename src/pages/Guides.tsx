@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -8,6 +11,23 @@ import {
 } from "@/components/ui/accordion";
 
 const Guides = () => {
+    const location = useLocation();
+    const [activeItem, setActiveItem] = useState<string>("");
+
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.replace("#", "");
+            setActiveItem(id);
+            // Optional: Scroll to the element after a short delay to allow accordion to open
+            setTimeout(() => {
+                const element = document.getElementById(id); // We might need to add IDs to the items or triggers
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
@@ -29,8 +49,8 @@ const Guides = () => {
                             Effectuez chaque étirement <strong>2 à 3 fois</strong> et maintenez la position finale pendant <strong>30 secondes</strong>.
                         </p>
 
-                        <Accordion type="single" collapsible className="w-full space-y-4">
-                            <AccordionItem value="apertura-pectorales" className="border rounded-lg px-4 bg-card">
+                        <Accordion type="single" collapsible className="w-full space-y-4" defaultValue={activeItem} key={activeItem}>
+                            <AccordionItem value="apertura-pectorales" className="border rounded-lg px-4 bg-card" id="apertura-pectorales">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Ouverture des Pectoraux dans l'Encadrement de Porte
                                 </AccordionTrigger>
@@ -48,11 +68,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Évitez de hausser l'épaule vers l'oreille. Gardez l'épaule détendue et basse.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#balle-massage" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Balle de Massage (pour les pectoraux)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="rotacion-hombros" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="rotacion-hombros" className="border rounded-lg px-4 bg-card" id="rotacion-hombros">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Rotation des Épaules et du Cou
                                 </AccordionTrigger>
@@ -69,11 +95,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Effectuez ces mouvements très lentement et de manière contrôlée. Ne forcez aucun point douloureux.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#sangle-yoga" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Sangle de Yoga (pour l'aide à l'étirement)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="gato-vaca" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="gato-vaca" className="border rounded-lg px-4 bg-card" id="gato-vaca">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Chat-Vache (Mobilité Spinale)
                                 </AccordionTrigger>
@@ -89,11 +121,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Le mouvement doit partir du centre de votre colonne, pas seulement du cou.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#tapis-yoga" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Tapis de Yoga Confort
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="giro-tronco" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="giro-tronco" className="border rounded-lg px-4 bg-card" id="giro-tronco">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Torsion du Tronc Allongé (Supine Spinal Twist)
                                 </AccordionTrigger>
@@ -111,6 +149,12 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Si vos genoux ne touchent pas le sol, ne vous inquiétez pas. Privilégiez le maintien de l'épaule opposée en contact avec le sol.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#rouleau-massage" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Rouleau de Massage (pour le dos)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
@@ -126,8 +170,8 @@ const Guides = () => {
                             Effectuez <strong>3 séries</strong> de <strong>10 à 15 répétitions</strong> (ou maintenez le temps indiqué).
                         </p>
 
-                        <Accordion type="single" collapsible className="w-full space-y-4">
-                            <AccordionItem value="activacion-abdominal" className="border rounded-lg px-4 bg-card">
+                        <Accordion type="single" collapsible className="w-full space-y-4" defaultValue={activeItem} key={`core-${activeItem}`}>
+                            <AccordionItem value="activacion-abdominal" className="border rounded-lg px-4 bg-card" id="activacion-abdominal">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Activation Abdominale (Transverse)
                                 </AccordionTrigger>
@@ -145,11 +189,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Cet exercice est une question de conscience, pas de force brute. Évitez d'utiliser les abdominaux superficiels (grand droit).
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#swiss-ball" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Swiss Ball (pour le core)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="puente-gluteos" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="puente-gluteos" className="border rounded-lg px-4 bg-card" id="puente-gluteos">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Pont Fessier (Hip Bridge)
                                 </AccordionTrigger>
@@ -166,11 +216,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Évitez de trop cambrer le bas du dos. Concentrez-vous sur le travail des fessiers.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#mini-bande" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Mini Bande Élastique (pour l'activation)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="plancha-rodillas" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="plancha-rodillas" className="border rounded-lg px-4 bg-card" id="plancha-rodillas">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Planche sur Genoux (Modifiée)
                                 </AccordionTrigger>
@@ -187,6 +243,12 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Imaginez que vous avez un plateau de boissons sur le dos, il doit rester plat et stable.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#coussin-equilibre" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Coussin d'Équilibre (pour la stabilité)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
@@ -202,8 +264,8 @@ const Guides = () => {
                             Effectuez <strong>3 séries</strong> de <strong>10 à 15 répétitions</strong> de chaque exercice.
                         </p>
 
-                        <Accordion type="single" collapsible className="w-full space-y-4">
-                            <AccordionItem value="sentadillas" className="border rounded-lg px-4 bg-card">
+                        <Accordion type="single" collapsible className="w-full space-y-4" defaultValue={activeItem} key={`force-${activeItem}`}>
+                            <AccordionItem value="sentadillas" className="border rounded-lg px-4 bg-card" id="sentadillas">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Squats Basiques
                                 </AccordionTrigger>
@@ -220,11 +282,17 @@ const Guides = () => {
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Essayez de ne pas laisser vos genoux s'effondrer vers l'intérieur. Gardez le poids réparti sur tout le pied.
                                         </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#kettlebell" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Kettlebell (pour les squats)
+                                            </Link>
+                                        </div>
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
 
-                            <AccordionItem value="flexiones-pared" className="border rounded-lg px-4 bg-card">
+                            <AccordionItem value="flexiones-pared" className="border rounded-lg px-4 bg-card" id="flexiones-pared">
                                 <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
                                     Pompes au Mur
                                 </AccordionTrigger>
@@ -240,6 +308,108 @@ const Guides = () => {
                                         </ol>
                                         <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
                                             <strong>Conseil Clé :</strong> Si vous voulez plus d'intensité, éloignez-vous du mur. Si vous en voulez moins, rapprochez-vous. Gardez le tronc ferme à tout moment.
+                                        </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#poignees-pompes" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Poignées de Pompes (pour les poignets)
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </section>
+
+                    {/* Section 4: Habitudes */}
+                    <section className="slide-up" style={{ animationDelay: "0.4s" }}>
+                        <h2 className="text-2xl font-extrabold mb-4 flex items-center gap-2 text-primary">
+                            ✅ L'Habitude – Cohérence Quotidienne
+                        </h2>
+                        <p className="mb-6 text-muted-foreground">
+                            Intégrez ces habitudes simples pour maintenir votre posture au quotidien.
+                        </p>
+
+                        <Accordion type="single" collapsible className="w-full space-y-4" defaultValue={activeItem} key={`habitudes-${activeItem}`}>
+                            <AccordionItem value="marche-consciente" className="border rounded-lg px-4 bg-card" id="marche-consciente">
+                                <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
+                                    La Marche Consciente
+                                </AccordionTrigger>
+                                <AccordionContent className="pt-4">
+                                    <p className="mb-4"><strong>Objectif :</strong> Améliorer la posture dynamique et l'endurance posturale.</p>
+                                    <div className="pl-4 border-l-4 border-primary/20">
+                                        <ol className="list-decimal pl-6 space-y-2 mb-4">
+                                            <li>Marchez <strong>15 à 30 minutes</strong> par jour.</li>
+                                            <li>Pendant la marche, concentrez-vous sur :
+                                                <ul className="list-disc pl-6 mt-2">
+                                                    <li>Ramener légèrement vos épaules en arrière et vers le bas.</li>
+                                                    <li>Regarder droit devant vous (pas vos pieds ni votre téléphone).</li>
+                                                    <li>Maintenir une légère tension dans l'abdomen (20-30%).</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                        <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
+                                            <strong>Conseil Clé :</strong> Imaginez qu'un fil tire le sommet de votre tête vers le ciel pendant que vous marchez.
+                                        </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#chaussures-marche" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Chaussures de Marche Active
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+
+                            <AccordionItem value="pauses-actives" className="border rounded-lg px-4 bg-card" id="pauses-actives">
+                                <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
+                                    Pauses Actives
+                                </AccordionTrigger>
+                                <AccordionContent className="pt-4">
+                                    <p className="mb-4"><strong>Objectif :</strong> Briser le cycle de la sédentarité et réactiver la circulation.</p>
+                                    <div className="pl-4 border-l-4 border-primary/20">
+                                        <ol className="list-decimal pl-6 space-y-2 mb-4">
+                                            <li>Si vous travaillez assis, réglez une minuterie pour sonner toutes les <strong>30 à 60 minutes</strong>.</li>
+                                            <li>Levez-vous et bougez pendant au moins 2 minutes.</li>
+                                            <li>Faites quelques étirements simples comme l'Ouverture des Pectoraux ou des rotations du cou.</li>
+                                            <li>Marchez un peu si possible.</li>
+                                        </ol>
+                                        <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
+                                            <strong>Conseil Clé :</strong> "La meilleure posture est la suivante". Changez de position souvent.
+                                        </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#coussin-ergo" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Coussin Ergonomique (pour le bureau)
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+
+                            <AccordionItem value="hydratation" className="border rounded-lg px-4 bg-card" id="hydratation">
+                                <AccordionTrigger className="text-xl font-bold text-accent hover:no-underline">
+                                    L'Hydratation
+                                </AccordionTrigger>
+                                <AccordionContent className="pt-4">
+                                    <p className="mb-4"><strong>Objectif :</strong> Maintenir la santé des disques intervertébraux et des tissus.</p>
+                                    <div className="pl-4 border-l-4 border-primary/20">
+                                        <p className="mb-4">
+                                            Les disques de votre colonne vertébrale sont composés majoritairement d'eau. Une bonne hydratation est essentielle pour qu'ils restent "repulpés" et absorbent les chocs efficacement.
+                                        </p>
+                                        <ul className="list-disc pl-6 space-y-2 mb-4">
+                                            <li>Buvez de l'eau régulièrement tout au long de la journée.</li>
+                                            <li>Visez environ 1,5 à 2 litres par jour (ajustez selon votre activité et la chaleur).</li>
+                                            <li>Commencez la journée par un grand verre d'eau.</li>
+                                        </ul>
+                                        <div className="bg-secondary/50 p-3 rounded-md italic text-sm">
+                                            <strong>Conseil Clé :</strong> Gardez une bouteille d'eau à portée de main pour y penser.
+                                        </div>
+                                        <div className="mt-4 pt-4 border-t border-border">
+                                            <Link to="/equipement#gourde" className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                                <ShoppingBag size={16} />
+                                                Équipement Recommandé : Gourde Inox (pour l'hydratation)
+                                            </Link>
                                         </div>
                                     </div>
                                 </AccordionContent>

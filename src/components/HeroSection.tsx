@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Activity, Shield, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   onStartQuestionnaire: () => void;
@@ -48,28 +49,17 @@ const HeroSection = ({ onStartQuestionnaire }: HeroSectionProps) => {
               Commencer l'analyse
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="xl">
-              Découvrir les exercices
-            </Button>
           </div>
 
           {/* Feature cards */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <FeatureCard
-              icon={<Target className="w-8 h-8" />}
-              title="Analyse Personnalisée"
-              description="Questionnaire intelligent adapté à votre profil sportif"
-            />
-            <FeatureCard
-              icon={<Activity className="w-8 h-8" />}
-              title="Guides Détaillés"
-              description="Instructions pas à pas pour chaque mouvement"
-            />
-            <FeatureCard
-              icon={<Shield className="w-8 h-8" />}
-              title="Prévention Active"
-              description="Conseils ciblés pour éviter les blessures"
-            />
+          <div className="flex justify-center mt-12 max-w-3xl mx-auto">
+            <Link to="/prevention">
+              <FeatureCard
+                icon={<Shield className="w-8 h-8" />}
+                title="Prévention Active"
+                description="Conseils ciblés pour éviter les blessures"
+              />
+            </Link>
           </div>
         </div>
       </div>

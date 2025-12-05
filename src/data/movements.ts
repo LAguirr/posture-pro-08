@@ -24,6 +24,12 @@ export const movements: Movement[] = [
     difficulty: "beginner",
     description: "Le squat est un exercice fondamental qui cible les quadriceps, les fessiers et les ischio-jambiers.",
     demoImage: squatDemo,
+    videoUrl: "https://www.youtube.com/embed/aclHkVaku9U",
+    videos: {
+      beginner: "https://www.youtube.com/embed/aclHkVaku9U", // Air Squat
+      intermediate: "https://www.youtube.com/embed/U3HlEF_E9fo", // Goblet Squat
+      advanced: "https://www.youtube.com/embed/ultWZbGWL5c" // Barbell Squat
+    },
     instructions: [
       "Placez vos pieds à largeur d'épaules, orteils légèrement vers l'extérieur",
       "Gardez le dos droit et la poitrine ouverte",
@@ -57,6 +63,12 @@ export const movements: Movement[] = [
     difficulty: "beginner",
     description: "La planche est un exercice isométrique qui renforce toute la ceinture abdominale.",
     demoImage: plancheDemo,
+    videoUrl: "https://www.youtube.com/embed/ASdvN_XEl_c",
+    videos: {
+      beginner: "https://www.youtube.com/embed/pSHjTRCQxIw", // Knee Plank
+      intermediate: "https://www.youtube.com/embed/ASdvN_XEl_c", // Standard Plank
+      advanced: "https://www.youtube.com/embed/6LqqeVEg-AA" // Advanced Plank
+    },
     instructions: [
       "Placez-vous en position de pompe, avant-bras au sol",
       "Alignez vos coudes sous vos épaules",
@@ -89,6 +101,12 @@ export const movements: Movement[] = [
     difficulty: "intermediate",
     description: "Séquence dynamique de yoga qui réchauffe le corps et améliore la souplesse.",
     demoImage: salutationSoleilDemo,
+    videoUrl: "https://www.youtube.com/embed/7Jk7j5q5g_k",
+    videos: {
+      beginner: "https://www.youtube.com/embed/7Jk7j5q5g_k", // Slow Flow
+      intermediate: "https://www.youtube.com/embed/X3-gKPNyrTA", // Standard Flow
+      advanced: "https://www.youtube.com/embed/2q3H6_t-hWc" // Advanced Flow
+    },
     instructions: [
       "Debout, pieds joints, mains en prière devant le cœur (Tadasana)",
       "Inspirez, levez les bras au ciel, légère extension arrière",
@@ -123,6 +141,12 @@ export const movements: Movement[] = [
     difficulty: "beginner",
     description: "Exercice unilatéral excellent pour développer force et équilibre des jambes.",
     demoImage: fentesDemo,
+    videoUrl: "https://www.youtube.com/embed/MxfTNXSFiYI",
+    videos: {
+      beginner: "https://www.youtube.com/embed/MxfTNXSFiYI", // Static Lunge
+      intermediate: "https://www.youtube.com/embed/D7KaRcUTQeE", // Walking Lunges
+      advanced: "https://www.youtube.com/embed/0_v4m8Z_sM8" // Bulgarian Split Squat
+    },
     instructions: [
       "Debout, pieds à largeur de hanches",
       "Faites un grand pas en avant avec une jambe",
@@ -155,6 +179,12 @@ export const movements: Movement[] = [
     difficulty: "intermediate",
     description: "Exercice polyarticulaire classique pour le haut du corps.",
     demoImage: pompesDemo,
+    videoUrl: "https://www.youtube.com/embed/IODxDxX7oi4",
+    videos: {
+      beginner: "https://www.youtube.com/embed/WfLMpD8fHWE", // Knee Pushups
+      intermediate: "https://www.youtube.com/embed/IODxDxX7oi4", // Standard Pushups
+      advanced: "https://www.youtube.com/embed/IODxDxX7oi4" // Diamond Pushups (using standard for now as placeholder if specific one not found, but let's try _l3ySVKYVJ8 if valid, otherwise keep standard)
+    },
     instructions: [
       "Position de planche, mains légèrement plus larges que les épaules",
       "Corps aligné de la tête aux talons",

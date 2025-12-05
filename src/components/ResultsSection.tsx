@@ -64,26 +64,43 @@ const ResultsSection = ({ profile, onRestart }: ResultsSectionProps) => {
           </div>
 
           {/* Exercise Demo Image */}
-          {movement.demoImage && (
+          {/* Exercise Demo Video/Image */}
+          {(movement.videos?.[profile.level] || movement.videoUrl || movement.demoImage) && (
             <Card variant="glow" className="mb-6 scale-in overflow-hidden">
               <div className="relative">
-                <img
-                  src={movement.demoImage}
-                  alt={`Démonstration du ${movement.name}`}
-                  className="w-full h-64 md:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 text-foreground">
-                    <div className="w-10 h-10 rounded-full btn-gradient flex items-center justify-center">
-                      <Play className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="font-bold">Posture de référence</p>
-                      <p className="text-sm text-muted-foreground">Observez la forme correcte</p>
-                    </div>
+                {(movement.videos?.[profile.level] || movement.videoUrl) ? (
+                  <div className="aspect-video w-full">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={movement.videos?.[profile.level] || movement.videoUrl}
+                      title={`Démonstration du ${movement.name}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full object-cover"
+                    ></iframe>
                   </div>
-                </div>
+                ) : (
+                  <>
+                    <img
+                      src={movement.demoImage}
+                      alt={`Démonstration du ${movement.name}`}
+                      className="w-full h-64 md:h-96 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="flex items-center gap-2 text-foreground">
+                        <div className="w-10 h-10 rounded-full btn-gradient flex items-center justify-center">
+                          <Play className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="font-bold">Posture de référence</p>
+                          <p className="text-sm text-muted-foreground">Observez la forme correcte</p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </Card>
           )}

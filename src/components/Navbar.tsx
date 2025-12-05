@@ -17,9 +17,9 @@ const Navbar = () => {
             <Link to="/guides" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Guides
             </Link>
-            <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/equipement" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Équipement
-            </a>
+            </Link>
           </div>
         </div>
       </div>

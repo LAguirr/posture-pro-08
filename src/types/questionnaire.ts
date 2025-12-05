@@ -13,6 +13,12 @@ export interface Movement {
   difficulty: "beginner" | "intermediate" | "advanced";
   description: string;
   demoImage?: string;
+  videoUrl?: string;
+  videos?: {
+    beginner: string;
+    intermediate: string;
+    advanced: string;
+  };
   instructions: string[];
   breathingTips: string[];
   commonErrors: string[];
@@ -31,9 +37,9 @@ export interface Equipment {
   safetyBenefit: string;
 }
 
-export type QuestionnaireStep = 
-  | "level" 
-  | "sports" 
-  | "objectives" 
-  | "injuries" 
+export type QuestionnaireStep =
+  | "level"
+  | "sports"
+  | "objectives"
+  | "injuries"
   | "movement";
